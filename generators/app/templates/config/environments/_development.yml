@@ -1,0 +1,3 @@
+server:
+  port: <%= this.props.go_port || 5050 %> 
+log: true
