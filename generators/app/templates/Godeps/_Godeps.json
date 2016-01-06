@@ -17,21 +17,6 @@
 			"Rev": "c7477ad8e330bef55bf1ebe300cf8aa67c492d1b"
 		},
 		{
-			"ImportPath": "github.com/influxdb/influxdb/client/v2",
-			"Comment": "v0.9.5-rc1-328-gbcc1ad0",
-			"Rev": "bcc1ad0d3f7b35fff1371337ebf916a8d6aae0fa"
-		},
-		{
-			"ImportPath": "github.com/influxdb/influxdb/models",
-			"Comment": "v0.9.5-rc1-328-gbcc1ad0",
-			"Rev": "bcc1ad0d3f7b35fff1371337ebf916a8d6aae0fa"
-		},
-		{
-			"ImportPath": "github.com/influxdb/influxdb/pkg/escape",
-			"Comment": "v0.9.5-rc1-328-gbcc1ad0",
-			"Rev": "bcc1ad0d3f7b35fff1371337ebf916a8d6aae0fa"
-		},
-		{
 			"ImportPath": "github.com/kr/pretty",
 			"Comment": "go.weekly.2011-12-22-27-ge6ac2fc",
 			"Rev": "e6ac2fc51e89a3249e82157fa0bb7a18ef9dd5bb"
@@ -42,8 +27,8 @@
 		},
 		{
 			"ImportPath": "github.com/magiconair/properties",
-			"Comment": "v1.5.4-10-g6ac0b95",
-			"Rev": "6ac0b95f449268951dd5c100682ea687a9866ea1"
+			"Comment": "v1.6.0",
+			"Rev": "84ea5e93a95c5e0115f3a4f3e141448584f48f37"
 		},
 		{
 			"ImportPath": "github.com/mitchellh/mapstructure",
@@ -51,7 +36,7 @@
 		},
 		{
 			"ImportPath": "github.com/spf13/cast",
-			"Rev": "ee815aaf958c707ad07547cd62150d973710f747"
+			"Rev": "ee7b3e0353166ab1f3a605294ac8cd2b77953778"
 		},
 		{
 			"ImportPath": "github.com/spf13/jwalterweatherman",
@@ -59,7 +44,7 @@
 		},
 		{
 			"ImportPath": "github.com/spf13/pflag",
-			"Rev": "08b1a584251b5b62f458943640fc8ebd4d50aaa5"
+			"Rev": "7f60f83a2c81bc3c3c0d5297f61ddfa68da9d3b7"
 		},
 		{
 			"ImportPath": "github.com/spf13/viper",
@@ -67,12 +52,12 @@
 		},
 		{
 			"ImportPath": "gopkg.in/fsnotify.v1",
-			"Comment": "v1.2.1",
-			"Rev": "7be54206639f256967dd82fa767397ba5f8f48f5"
+			"Comment": "v1.2.8",
+			"Rev": "508915b7500b6e42a87132e4afeb4729cebc7cbb"
 		},
 		{
 			"ImportPath": "gopkg.in/yaml.v2",
-			"Rev": "53feefa2559fb8dfa8d81baad31be332c97d6c77"
+			"Rev": "f7716cbe52baa25d2e9b0d0da546fcf909fc16b4"
 		}
 	]
 }
