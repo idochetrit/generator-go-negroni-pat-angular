@@ -1,6 +1,6 @@
 {
   "name": "generator-go-negroni-pat-angular",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Create microservice base on AngularJS + Go + Negroni + Pat",
   "homepage": "",
   "author": {
@@ -17,7 +17,10 @@
   ],
   "dependencies": {
     "yeoman-generator": "^0.21.1",
+    "underscore.string": "^3.2.2",
+    "lodash": "^3.10.1",
     "chalk": "^1.0.0",
+    "mkdirp": "^0.5.1",
     "yosay": "^1.0.2"
   },
   "devDependencies": {

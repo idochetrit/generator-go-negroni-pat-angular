@@ -1,10 +1,8 @@
 package main
 
-
 import (
     "fmt"
     "log"
-    "log/syslog"
     "net/http"
     "time"
 
@@ -12,9 +10,7 @@ import (
 
     "github.com/bmizerany/pat"
     "github.com/codegangsta/negroni"
-    gtcore "github.com/gtforge/libgtcore"
     "github.com/spf13/viper"
-    "gopkg.in/airbrake/gobrake.v1"
 )
 
 var Settings map[string]*viper.Viper
@@ -29,6 +25,7 @@ func newServer() *http.Server {
     }
 
     n.UseFunc(recovery())
+    n.Use(negroni.NewStatic(http.Dir("./public")))
 
     // Setup routes
     router := pat.New()
@@ -62,10 +59,6 @@ func InitConfigs() {
     if err != nil {
         fmt.Errorf("Fatal error config file: %s \n", err)
     }
-    settingsName := []string{kinesis, "base", influxdb, carbon, "secrets", statsd, newrelic, mixpanel}
-    for _, name := range settingsName {
-        Settings[name] = getSettings(name)
-    }
 }
 
 func main() {
@@ -78,19 +71,4 @@ func main() {
 
 func InitApp() {
     // add here plugins and middleware
-}
-
-func appLogger(level string) gtcore.GTLogger {
-    //Syslog
-    lvl := syslog.LOG_INFO
-    switch level {
-    case `debug`:
-        lvl = syslog.LOG_DEBUG
-    case `warning`:
-        lvl = syslog.LOG_WARNING
-    case `error`:
-        lvl = syslog.LOG_ERR
-    }
-    logWriter := log.New(os.Stdout, "WebService: ", log.LstdFlags)
-    return &gtcore.ConsoleLogger{Level: lvl, Writer: logWriter}
 }

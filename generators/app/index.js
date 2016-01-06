@@ -1,41 +1,54 @@
 'use strict';
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
+var mkdirp = require('mkdirp');
+var _s = require('underscore.string');
 
 module.exports = yeoman.generators.Base.extend({
   prompting: function () {
     var done = this.async();
-
     // Have Yeoman greet the user.
-    this.log(yosay(
-      '################################### *** ###################################' +
-      '##            Welcome to Go + AngularJS Microservice Generator           ##' +
-      '################################### *** ###################################'
-    ));
-    this.log(yosay(
-      'Please make sure you have go deps before you run the Go server...' +
-      'You can install it by writing the following command: \'go get github.com/tools/godep\''
-    ));
+    this.log('################################### *** ###################################');
+    this.log('##            Welcome to Go + AngularJS Microservice Generator           ##');
+    this.log('################################### *** ###################################');
 
     var prompts = [{
       type: 'input',
       name: 'go_port',
       message: 'What port do you want to run the go server? (default: 5050):',
-      default: true
+      default: 5050
+    },{
+      type: 'input',
+      name: 'baseName',
+      message: 'What is the name of your application?',
+      default: 'myapp'
     }];
 
     this.prompt(prompts, function (props) {
+      this.baseName = props.baseName;
+      this.slugifiedBaseName = _s.slugify(this.baseName);
+      this.camelizedBaseName = _s.camelize(this.baseName);
       this.props = props;
       // To access props later use this.props.someOption;
 
       done();
     }.bind(this));
     this.log(yosay(
+      'Please make sure you have go deps before you run the Go server...' +
+      'You can install it by writing the following command: \'go get github.com/tools/godep\''
+    ));
+    this.log(yosay(
       'Don\'t forget to execute \'godep restore\' and \'godep get\' in the root directory of you\'r new project !'
     ));
   },
 
   writing: function () {
+    this.routes = [];
+    this.generatorConfig = {
+    "baseName": this.baseName,
+    "routes": this.routes
+    };
+    this.generatorConfigStr = JSON.stringify(this.generatorConfig, null, '\t');
     this.template('_generator.json', 'generator.json');
     this.template('_package.json', 'package.json');
     this.template('_bower.json', 'bower.json');
@@ -46,13 +59,17 @@ module.exports = yeoman.generators.Base.extend({
     var modelsDir = 'models/';
     var publicDir = 'public/';
     var routesDir = 'routes/';
-    this.mkdir(modelsDir);
-    this.mkdir(publicDir);
-    this.mkdir(routesDir);
+    mkdirp(modelsDir);
+    mkdirp(publicDir);
+    mkdirp(routesDir);
 
     // Go config
-    this.mkdir('config/');
-    this.mkdir('config/environments/');
+    mkdirp('config/');
+    mkdirp('Godeps/');
+    mkdirp('config/environments/');
+    this.template('Godeps/_Godeps.json', 'Godeps/Godeps.json');
+    this.copy('middlewares.go', 'middlewares.go');
+    this.copy('godep', 'godep');
     this.copy('config/environments/_development.yml', 'config/environments/development.yml');
     this.template('config/environments/_production.yml', 'config/environments/production.yml');
     this.template('_server.go', 'server.go');
@@ -60,9 +77,9 @@ module.exports = yeoman.generators.Base.extend({
     var publicCssDir = publicDir + 'css/';
     var publicJsDir = publicDir + 'js/';
     var publicViewDir = publicDir + 'views/';
-    this.mkdir(publicCssDir);
-    this.mkdir(publicJsDir);
-    this.mkdir(publicViewDir);
+    mkdirp(publicCssDir);
+    mkdirp(publicJsDir);
+    mkdirp(publicViewDir);
     this.template('public/_index.html', publicDir + 'index.html');
     this.copy('public/css/app.css', publicCssDir + 'app.css');
     this.template('public/js/_app.js', publicJsDir + 'app.js');
