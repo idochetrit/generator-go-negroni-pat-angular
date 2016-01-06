@@ -1,12 +1,12 @@
 {
   "name": "generator-go-negroni-pat-angular",
-  "version": "0.1.0",
-  "description": "Create microservice base on AngularJS + Go + Negroni + Pat",
-  "homepage": "",
+  "version": "0.1.2",
+  "description": "Create microservice base on AngularJS + Go + Negroni + Pat (and Viper for YAML configuration) with Yeoman",
+  "homepage": "https://github.com/idoch/generator-go-negroni-pat-angular",
   "author": {
     "name": "idochetrit",
     "email": "ido.chetrit@gettaxi.com",
-    "url": ""
+    "url": "https://github.com/idoch/generator-go-negroni-pat-angular"
   },
   "files": [
     "generators"

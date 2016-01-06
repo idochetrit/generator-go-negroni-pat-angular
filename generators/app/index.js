@@ -15,7 +15,7 @@ module.exports = yeoman.generators.Base.extend({
     var prompts = [{
       type: 'input',
       name: 'go_port',
-      message: 'What port do you want to run the go server? (default: 5050):',
+      message: 'What port do you want to run the go server?',
       default: 5050
     },{
       type: 'input',
