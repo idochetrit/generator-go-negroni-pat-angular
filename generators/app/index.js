@@ -69,7 +69,6 @@ module.exports = yeoman.generators.Base.extend({
     mkdirp('config/environments/');
     this.template('Godeps/_Godeps.json', 'Godeps/Godeps.json');
     this.copy('middlewares.go', 'middlewares.go');
-    this.copy('godep', 'godep');
     this.copy('config/environments/_development.yml', 'config/environments/development.yml');
     this.template('config/environments/_production.yml', 'config/environments/production.yml');
     this.template('_server.go', 'server.go');
