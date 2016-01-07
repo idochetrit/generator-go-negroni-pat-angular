@@ -1,6 +1,7 @@
 'use strict';
 
 var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
+var serveStatic = require('serve-static');
 
 module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt);
@@ -15,8 +16,8 @@ module.exports = function (grunt) {
     sync: {
       dist: {
         files: [{
-          cwd: '<%%= yeoman.app %>',
-          dest: '<%%= yeoman.dist %>',
+          cwd: '<%= yeoman.app %>',
+          dest: '<%= yeoman.dist %>',
           src: '**'
         }]
       }
@@ -27,25 +28,25 @@ module.exports = function (grunt) {
       },
       src: {
         files: [
-          '<%%= yeoman.app %>/*.html',
-          '<%%= yeoman.app %>/css/**/*',
-          '<%%= yeoman.app %>/js/**/*',
-          '<%%= yeoman.app %>/views/**/*'
+          '<%= yeoman.app %>/*.html',
+          '<%= yeoman.app %>/css/**/*',
+          '<%= yeoman.app %>/js/**/*',
+          '<%= yeoman.app %>/views/**/*'
         ]
       }
     },
     connect: {
       proxies: [
         {
-          context: '/<%= baseName %>',
+          context: '/GettMoreServer',
           host: 'localhost',
-          port: 3000,
+          port: 5051,
           https: false,
           changeOrigin: false
         }
       ],
       options: {
-        port: 9000,
+        port: 5051,
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: 'localhost',
         livereload: 35729
@@ -54,12 +55,12 @@ module.exports = function (grunt) {
         options: {
           open: true,
           base: [
-            '<%%= yeoman.app %>'
+            '<%= yeoman.app %>'
           ],
           middleware: function (connect) {
             return [
               proxySnippet,
-              connect.static(require('path').resolve('public'))
+              serveStatic(require('path').resolve('public'))
             ];
           }
         }
@@ -71,8 +72,8 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           dot: true,
-          cwd: '<%%= yeoman.app %>',
-          dest: '<%%= yeoman.dist %>',
+          cwd: '<%= yeoman.app %>',
+          dest: '<%= yeoman.dist %>',
           src: '**'
         }]
       }
@@ -86,7 +87,7 @@ module.exports = function (grunt) {
     },
     bowercopy: {
       options: {
-        destPrefix: '<%%= yeoman.app %>'
+        destPrefix: '<%= yeoman.app %>'
       },
       test: {
         files: {

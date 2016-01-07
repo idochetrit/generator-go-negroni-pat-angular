@@ -1,6 +1,6 @@
 {
 	"ImportPath": "<%= slugifiedBaseName %>",
-	"GoVersion": "go1.5.1",
+	"GoVersion": "go1.5",
 	"Deps": [
 		{
 			"ImportPath": "github.com/BurntSushi/toml",
@@ -35,6 +35,14 @@
 			"Rev": "281073eb9eb092240d33ef253c404f1cca550309"
 		},
 		{
+			"ImportPath": "github.com/rs/cors",
+			"Rev": "ceb1fbf238d7711a11a86a2622d0b85305348aeb"
+		},
+		{
+			"ImportPath": "github.com/rs/xhandler",
+			"Rev": "d9d9599b6aaf6a058cb7b1f48291ded2cbd13390"
+		},
+		{
 			"ImportPath": "github.com/spf13/cast",
 			"Rev": "ee7b3e0353166ab1f3a605294ac8cd2b77953778"
 		},
@@ -49,6 +57,10 @@
 		{
 			"ImportPath": "github.com/spf13/viper",
 			"Rev": "e37b56e207dda4d79b9defe0548e960658ee8b6b"
+		},
+		{
+			"ImportPath": "golang.org/x/net/context",
+			"Rev": "520af5de654dc4dd4f0f65aa40e66dbbd9043df1"
 		},
 		{
 			"ImportPath": "gopkg.in/fsnotify.v1",
