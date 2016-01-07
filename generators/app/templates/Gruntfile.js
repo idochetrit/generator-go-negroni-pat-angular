@@ -38,9 +38,9 @@ module.exports = function (grunt) {
     connect: {
       proxies: [
         {
-          context: '/GettMoreServer',
+          context: '/api/v1',
           host: 'localhost',
-          port: 5051,
+          port: 5050,
           https: false,
           changeOrigin: false
         }
