@@ -45,8 +45,8 @@ module.exports = yeoman.generators.Base.extend({
   writing: function () {
     this.routes = [];
     this.generatorConfig = {
-    "baseName": this.baseName,
-    "routes": this.routes
+      "baseName": this.baseName,
+      "routes": this.routes
     };
     this.generatorConfigStr = JSON.stringify(this.generatorConfig, null, '\t');
     this.template('_generator.json', 'generator.json');

@@ -38,8 +38,6 @@ func newServer() *http.Server {
 	Server := &http.Server{
 		Addr:           ":" + Settings["environments"].GetString("server.port"),
 		Handler:        n,
-		ReadTimeout:    5 * time.Second,
-		WriteTimeout:   5 * time.Second,
 		MaxHeaderBytes: 1 << 20,
 	}
 	return Server
