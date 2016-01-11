@@ -16,8 +16,8 @@ module.exports = function (grunt) {
     sync: {
       dist: {
         files: [{
-          cwd: '<%= yeoman.app %>',
-          dest: '<%= yeoman.dist %>',
+          cwd: '<%%= yeoman.app %>',
+          dest: '<%%= yeoman.dist %>',
           src: '**'
         }]
       }
@@ -28,10 +28,10 @@ module.exports = function (grunt) {
       },
       src: {
         files: [
-          '<%= yeoman.app %>/*.html',
-          '<%= yeoman.app %>/css/**/*',
-          '<%= yeoman.app %>/js/**/*',
-          '<%= yeoman.app %>/views/**/*'
+          '<%%= yeoman.app %>/*.html',
+          '<%%= yeoman.app %>/css/**/*',
+          '<%%= yeoman.app %>/js/**/*',
+          '<%%= yeoman.app %>/views/**/*'
         ]
       }
     },
@@ -55,7 +55,7 @@ module.exports = function (grunt) {
         options: {
           open: true,
           base: [
-            '<%= yeoman.app %>'
+            '<%%= yeoman.app %>'
           ],
           middleware: function (connect) {
             return [
@@ -72,8 +72,8 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           dot: true,
-          cwd: '<%= yeoman.app %>',
-          dest: '<%= yeoman.dist %>',
+          cwd: '<%%= yeoman.app %>',
+          dest: '<%%= yeoman.dist %>',
           src: '**'
         }]
       }
@@ -87,7 +87,7 @@ module.exports = function (grunt) {
     },
     bowercopy: {
       options: {
-        destPrefix: '<%= yeoman.app %>'
+        destPrefix: '<%%= yeoman.app %>'
       },
       test: {
         files: {

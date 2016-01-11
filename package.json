@@ -1,6 +1,6 @@
 {
   "name": "generator-go-negroni-pat-angular",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Create microservice base on AngularJS + Go + Negroni + Pat (and Viper for YAML configuration) with Yeoman",
   "homepage": "https://github.com/idoch/generator-go-negroni-pat-angular",
   "author": {
@@ -13,7 +13,14 @@
   ],
   "main": "generators/index.js",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "go",
+    "golang",
+    "negroni",
+    "pat",
+    "angularjs",
+    "microservice",
+    "angular"
   ],
   "dependencies": {
     "yeoman-generator": "^0.21.1",

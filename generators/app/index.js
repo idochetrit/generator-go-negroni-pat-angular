@@ -1,8 +1,8 @@
 'use strict';
-var yeoman = require('yeoman-generator');
-var yosay = require('yosay');
-var mkdirp = require('mkdirp');
-var _s = require('underscore.string');
+var yeoman = require('yeoman-generator'),
+    yosay = require('yosay'),
+    mkdirp = require('mkdirp'),
+    _s = require('underscore.string');
 
 module.exports = yeoman.generators.Base.extend({
   prompting: function () {
